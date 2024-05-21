@@ -14,12 +14,14 @@ public class Arcade {
         myScanner = scanner;
     }
 
+    // Method that handles the game and how users interact with it
     public void Dealer() {
         this.welcome();
         this.startGame();
         this.requestReport();
     }
 
+    // Method that asks players if they would like a report of the game
     public void requestReport() {
         System.out.println("Would you like a report about the game? yes/no");
         String requestReport = myScanner.nextLine();
@@ -32,6 +34,7 @@ public class Arcade {
         }
     }
 
+    // Method that generates a report of the game
     public void generateReport() {
         System.out.println("Please type a name for your report:");
         String reportName = myScanner.nextLine();
@@ -46,7 +49,8 @@ public class Arcade {
             e.printStackTrace();
         }
     }
-
+    
+    // Method that creates new instances of User object
     public void createNewPlayer() {
         // Method that creates and adds a new player
         User newPlayer = new User(myScanner);
@@ -56,11 +60,12 @@ public class Arcade {
         newPlayer.index = playerIdx;
     }
 
+    // Method that displays players and their info
     public void showPlayers() {
-        // method that helps the user choose a player
         playersList.forEach((n) -> n.displayPlayerInfo());
     }
 
+    // Mehtod that asks user(s) the play-mode and calls the createNewPlayer() method according to it.
     public void welcome() {
         System.out.println("WELCOME TO THE ARCADE!!!\nPress (A) to play alone or (G) to play in group");
         String answer = myScanner.nextLine();
@@ -83,6 +88,7 @@ public class Arcade {
         }
     }
 
+    // Method that executes the game
     public void startGame() {
         System.out.println("Hi! Are you ready to play? yes/no: ");
         String answer = myScanner.nextLine();
@@ -102,6 +108,7 @@ public class Arcade {
         }
     }
 
+    // Method that handles every round
     public void playRound() {
         for(User player : playersList) {
                 System.out.println("\n||||||||||||||||||||||||||||||||||||||||||||||||||||Player " + player.playerName + "'s turn||||||||||||||||||||||||||||||||||||||||||||||||||||\n");

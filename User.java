@@ -10,6 +10,8 @@ public class User {
         myScanner = scanner;
     }
 
+    // Requests player info to assign the input to the player's
+    // attributes
     public void requestPlayerInfo() {
         System.out.println("Enter new player name:");
         String name = myScanner.nextLine();
@@ -24,11 +26,13 @@ public class User {
             this.avatar = "|(O¿O`)|";
         }
     }
-
+    
+    // Returns a string conatining player info
     public void displayPlayerInfo() {
         System.out.println(this.playerName + "'s avatar => " + this.avatar);
     }
 
+    // Players property that allow them to play the game
     public void playGame() {
        guessNumGame  newGame = new guessNumGame(myScanner);
        System.out.println("This is the secret number: " + newGame.secretNum);

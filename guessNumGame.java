@@ -7,7 +7,7 @@ public class guessNumGame{
         // variable to store the number of attempts per game
         int attempts = 3;
 
-        // variable to store the input from the user}
+        // variable to store the user's guess
         int guessedNum;
 
         // variable (helperMsg) returns a message that tells the user 
@@ -22,6 +22,7 @@ public class guessNumGame{
         myScanner = scanner;
     }
 
+    // detremines whether users can continue playing
     public boolean canPlay() {
         if(guessIsCorrect) {
             return false;
@@ -34,6 +35,7 @@ public class guessNumGame{
         }
     }
 
+    // Only allows users that can play the game to continue playing
     public void play() {
         if (this.canPlay()) {
             this.requestGuess();
@@ -44,6 +46,8 @@ public class guessNumGame{
         }
     }
 
+    
+    // compares the user's guess to the number generated randomly
     public void checkGuess() {
         --this.attempts;
         if(secretNum == guessedNum) {
@@ -55,7 +59,9 @@ public class guessNumGame{
             this.helper();
         }
     }
-
+    
+    // updates the helperMsg variable according to player's status 
+    // in the game
     public void helper() {
         if (attempts == 0) {
             if (guessedNum > secretNum) {
@@ -71,6 +77,8 @@ public class guessNumGame{
         }
     }
 
+    // accepts input from the user and assigns the value of the input 
+    // to the guessNum variable
     public void requestGuess() {
         // Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your guess: "); 
